@@ -1,0 +1,70 @@
+.\" Copyright 2002 Andrew Stevenson. All Rights Reserved.
+.\" $Id: settitle.1,v 1.3 2005/07/05 00:39:43 andrew Exp $
+.\"
+.Dd April 20, 2002
+.Os UgH!
+.Dt SETTITLE 1
+.Sh NAME
+.Nm settitle
+.Nd set the title of terminal emulator windows
+.Sh SYNOPSIS
+.Nm
+.Op Fl i Ar icon_title
+.Op Fl t Ar window_title
+.Op Ar icon_and_window_title
+.Sh DESCRIPTION
+.Nm
+sets the window and/or icon titles of terminal emulator windows. Judicious
+use of
+.Nm
+can be useful to help in quickly identifying a specific window among many
+similar looking terminal windows.
+.Pp
+The following options are available:
+.Bl -tag -width indent
+.It Fl i
+Set the title of the icon of the current window (depending on your window
+manager this might not have much effect).
+.It Fl t
+Set the title of the current window.
+.El
+.Pp
+If the
+.Ar icon_and_window_title
+operand is specified it is used to set both the icon and window title.
+.Ar icon_and_window_title
+is mutually exclusive with
+.Fl i
+or
+.Fl t .
+If
+.Ar icon_and_window_title ,
+.Fl i
+or
+.Fl t
+is not specified the short (unqualified) name of the host is used for
+.Ar icon_and_window_title .
+.Sh DIAGNOSTICS
+If your terminal emulator does not support the setting of titles in the manner
+of
+.Xr xterm 1
+et al then you may see some funny characters appear from
+.Nm
+and your terminal bell may ring.
+.Nm
+has been tested with
+.Xr xterm 1 ,
+.Xr eterm 1
+and
+.Xr Terminal.app
+from MacOS X.
+.Sh SEE ALSO
+.Xr xterm 1 ,
+.Xr eterm 1
+.Sh AUTHORS
+.Nm
+was written by
+.An Andrew Stevenson Aq andrew@ugh.net.au .
+.Sh BUGS
+.Nm
+makes no attempt to see if the title setting feature is supported.
